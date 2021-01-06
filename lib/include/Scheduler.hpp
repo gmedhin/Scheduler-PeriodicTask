@@ -23,7 +23,7 @@ namespace TaskScheduler {
    template < typename Task_t, typename TaskId_t >
       class Scheduler {
          public:
-            Scheduler() =
+         Scheduler() =
             default; ///<  Default constructor
          ~Scheduler() =
             default; ///< Default destructor
