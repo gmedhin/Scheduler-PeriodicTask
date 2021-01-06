@@ -1,6 +1,6 @@
 # Scheduler-PeriodicTask
 
-The program uses methods provided by the Scheduler class to add and execute any task (say PeriodicTask) at a specified time interval. The Scheduler provides the following methods:
+The program uses methods provided by the Scheduler library class to add and execute any task (say PeriodicTask) at a specified time interval. Some of the methods provided by the Scheduler class include the following:
    - Add PeriodicTask with given time interval, in seconds
    - Remove PeriodicTask so that it will no longer executed periodically
    - Change the time interval of any already exissting PeriodicTask
