@@ -18,10 +18,12 @@
 
 #include "TaskInfo.hpp"
 
-namespace TaskScheduler {
+namespace TaskScheduler 
+{
    ///<  Class for storing and schedulling/starting periodic tasks based on given time interval/period
    template < typename Task_t, typename TaskId_t >
-      class Scheduler {
+      class Scheduler 
+	  {
          public:
          Scheduler() =
             default; ///<  Default constructor
