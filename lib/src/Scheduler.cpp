@@ -64,7 +64,7 @@ namespace TaskScheduler
          std::lock_guard < std::mutex > guard(m_mutex);
 
          if (auto itr = m_taskIdToTaskMap.find(taskId); itr != m_taskIdToTaskMap.end()) {
-			 m_taskIdToTaskMap.erase(itr);
+            m_taskIdToTaskMap.erase(itr);
          } else {
             stringstream ssMessage;
             ssMessage << "Cannot remove periodic task: Task not found. Task info: " << taskId << endl;
