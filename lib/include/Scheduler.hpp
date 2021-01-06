@@ -81,7 +81,7 @@ namespace TaskScheduler
          /**
           *  Retrieve time interval/period of a specific task
           *
-          * @param task Name of periodic task
+          * @param taskId - Id of periodic task
           * @return Time interval for periodic task 
           * @note may throw exception
           */

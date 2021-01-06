@@ -45,7 +45,7 @@ template < typename Task_t, typename TaskId_t >
 
 //<------------------------------------------------------------------------------------------------------>//
 /** 
- *  Driver main code/ client program
+ *  Driver main code/ client program for testing
  */
 int main() 
 {
