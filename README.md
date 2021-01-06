@@ -30,3 +30,5 @@ Test the code?
       1. cd bld   //--> go to build folder
       2../main/main  //--> to test the the code using the main driver method 
       3. make test  // --> to execute the testcases
+
+Note: You need atleast c++17 compiler support
