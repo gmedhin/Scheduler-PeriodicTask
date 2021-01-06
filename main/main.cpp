@@ -64,7 +64,8 @@ int main()
       taskId3,
       taskId4
    };
-
+   
+   //Add peridic tasks
    for (auto taskId: taskIdVec) {
       try {
          schedulerObj.addPeriodicTask(taskId, PeriodicTask<TaskInfo>);
@@ -78,6 +79,7 @@ int main()
    const int maxTime = 18;
    executePeriodicTasks(schedulerObj, maxTime);
 
+   //Change time interval /period
    try {
       int timeInterval_2 = 2; //new time interval
       int timeInterval_1 = 7; //new time interval
@@ -93,7 +95,8 @@ int main()
       PrintMessage(ssMessage.str());
    }
    executePeriodicTasks(schedulerObj, maxTime);
-
+   
+   //Remove task
    try {
       schedulerObj.removePeriodicTask(taskId4);
       std::stringstream ssMessage;
