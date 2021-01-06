@@ -90,7 +90,7 @@ namespace TaskScheduler
       private:
 
          mutable std::mutex m_mutex;
-         std::unordered_map < TaskId_t, Task_t, hashing_func, key_equal_fn > m_taskIdToTaskMap;  //Hash table with cutom hashing and comparator functions
+         std::unordered_map < TaskId_t, Task_t, hashing_func, key_equal_fn > m_taskIdToTaskMap;  //Hash table with custom hashing and comparator functions
       };
 }
 #endif
