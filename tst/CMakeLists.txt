@@ -1,26 +1,4 @@
 
-#project(TST)
-
-#set(THREADS_PREFER_PTHREAD_FLAG ON)
-#find_package (Threads REQUIRED)
-#find_package (Boost COMPONENTS system filesystem unit_test_framework REQUIRED)
-
-#add_definitions (-DBOOST_TEST_DYN_LINK)
-
-#add_executable (Tst test.cpp
-#)
-#target_link_libraries(Tst PRIVATE Lib)
-
-#target_link_libraries (Tst 
-#                 PRIVATE  
-#                       ${Boost_FILESYSTEM_LIBRARY} 
-#                       ${Boost_SYSTEM_LIBRARY} 
-#                       ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
-#                        Threads::Threads
-#)
-#enable_testing()
-#add_test (NAME MyTest COMMAND tst)
-
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package (Threads REQUIRED)
 find_package (Boost COMPONENTS system filesystem unit_test_framework REQUIRED)
