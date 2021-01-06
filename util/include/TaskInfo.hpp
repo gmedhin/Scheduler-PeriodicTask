@@ -42,8 +42,8 @@ struct hashing_func
 //Custom comparision function for equality
 struct key_equal_fn 
 {
-   bool operator()(const TaskInfo & id1,
-      const TaskInfo & id2) const {
+   bool operator()(const TaskInfo & id1, const TaskInfo & id2) const 
+   {
       return id1.m_id == id2.m_id;
    }
 };
