@@ -65,7 +65,7 @@ int main()
       taskId4
    };
    
-   //Add peridic tasks
+   //Add periodic tasks
    for (auto taskId: taskIdVec) {
       try {
          schedulerObj.addPeriodicTask(taskId, PeriodicTask<TaskInfo>);

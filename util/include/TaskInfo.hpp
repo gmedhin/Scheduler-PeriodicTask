@@ -21,8 +21,6 @@ struct TaskInfo
    {
       return m_id == other.m_id;
    }
-
-   friend std::ostream & operator << (std::ostream & os, const TaskInfo & taskId);
 };
 
 //Overloading << operator
