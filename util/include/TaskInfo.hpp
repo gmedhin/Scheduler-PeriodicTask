@@ -6,7 +6,7 @@
 
 /**
  * Given two tasks are assumed to be equal if only if they both have the same id. 
- *  i.e., task id is unique and used to identify each task. More than one task can have equal period.
+ *  i.e., task id is unique and it is used to identify each task. However, more than one task can have equal period or time interval.
  */
 struct TaskInfo 
 {
@@ -25,6 +25,7 @@ struct TaskInfo
    friend std::ostream & operator << (std::ostream & os, const TaskInfo & taskId);
 };
 
+//Overloading << operator
 inline std::ostream & operator << (std::ostream & os, const TaskInfo & taskId) 
 {
    os << "Task id: " << taskId.m_id << ", Period: " << taskId.m_period << std::endl;
@@ -40,6 +41,7 @@ struct hashing_func
    }
 };
 
+//Custom comparision function for equality
 struct key_equal_fn 
 {
    bool operator()(const TaskInfo & id1,

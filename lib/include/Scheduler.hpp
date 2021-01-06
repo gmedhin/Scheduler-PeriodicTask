@@ -13,9 +13,7 @@
 #define _SCHEDULER_
 
 #include <unordered_map>
-
 #include <mutex>
-
 #include "TaskInfo.hpp"
 
 namespace TaskScheduler 
@@ -24,7 +22,9 @@ namespace TaskScheduler
    template < typename Task_t, typename TaskId_t >
       class Scheduler 
       {
-         public:
+		  
+      public:
+	  
          Scheduler() =
             default; ///<  Default constructor
          ~Scheduler() =
@@ -32,24 +32,25 @@ namespace TaskScheduler
          /**
           *  Add periodic task to a table of periodic tasks
           *
-          *  @param taskId Id of periodic task 
-          *  @param task Name of periodic task to be added/stored in a table of periodic tasks
+          *  @param taskId - Id of periodic task 
+          *  @param task - Name of periodic task to be added/stored in a table of periodic tasks
+		  *  @note May throw exception 
           */
-         void addPeriodicTask(TaskId_t taskId, Task_t task);
+         void addPeriodicTask(TaskId_t taskId, Task_t taskNew);
 
          /**
           *  Execute the correct peiodic task by checking the time interval of each peiodic 
           *  tasks in the table, triggering a new thread for each task.
-          *  This method can called every new time(e.g., every second) from the client
+          *  This method can be called every new time(e.g., every second) from the client
           *
-          *  @param currentTime Current time value (in seconds)
+          *  @param currentTimeSec - Current time value (in seconds)
           */
          void onNewTimeSec(timeval currentTimeSec) const;
 
          /**
           *  Remove a given  periodic task from the table of periodic tasks
           *
-          *  @param task Name of periodic task to be added/stored in a table of periodic tasks
+          *  @param taskId -  Id of periodic task to be removed
           *  @note  may throw exception  
           */
          void removePeriodicTask(TaskId_t taskId);
@@ -57,16 +58,17 @@ namespace TaskScheduler
          /**
           *  Change time interval of a given task with a given new time interval
           *
-          *  @param task Name of periodic task to be added/stored in a table of periodic tasks
-          *  @param newTimeIntervalSec New time interval value (in secs) for the task 
+          *  @param taskId - Id of periodic task whose interval to be changed
+          *  @param newTimeIntervalSec - New time interval value (in secs)  
           *  @note may throw exception
           */
          void changeTimeInterval(TaskId_t taskId, int newTimeIntervalSec);
 
          /**
           *  Change task id of a given task
-          *  @param oldId  Old task id
-          *  @param newId  New task id
+          *
+          *  @param oldId  - Old task id
+          *  @param newId  - New task id
           */
          void changeTaskId(TaskId_t oldId, TaskId_t newId);
          /**
@@ -85,10 +87,10 @@ namespace TaskScheduler
           */
          int getTimeIntervalSec(TaskId_t taskId) const;
 
-         private:
+      private:
 
          mutable std::mutex m_mutex;
-         std::unordered_map < TaskId_t, Task_t, hashing_func, key_equal_fn > m_taskIdToTaskMap;
+         std::unordered_map < TaskId_t, Task_t, hashing_func, key_equal_fn > m_taskIdToTaskMap;  //Hash table with cutom hashing and comparator functions
       };
 }
 #endif

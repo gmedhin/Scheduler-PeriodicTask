@@ -10,12 +10,10 @@
 #include <mutex>
 #include <sstream>
 #include <chrono>
-#include "TaskInfo.hpp"
 
 static void PrintMessage(const std::string_view message)
 {
-   //access to cout is mutually exclusive
-   static std::mutex mutexPrint;
+   static std::mutex mutexPrint;    //access to cout is mutually exclusive
    std::lock_guard<std::mutex> guard(mutexPrint);
    std::cout<<message<<std::endl<<std::flush;
 }

@@ -31,9 +31,9 @@ namespace TaskScheduler
         std::lock_guard < std::mutex > guard(m_mutex);
 
          if (auto[pos, done] = m_taskIdToTaskMap.insert({taskId, task}); !done) {
-            auto[taskId, task] = * pos;
+            auto[taskId, taskValue] = * pos;
             stringstream ssMessage;
-            ssMessage << "Adding task failed: You cannot add same task more than once. Task Info: " << taskId << endl;
+            ssMessage << "Adding task failed: You cannot add same task more than once. Existing task Info: " << taskId << endl;
             int errorCode = -13;
             throw GenExcept(ssMessage.str(), errorCode);
          }
