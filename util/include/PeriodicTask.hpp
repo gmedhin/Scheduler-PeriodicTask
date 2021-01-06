@@ -23,13 +23,13 @@ static void PrintMessage(const std::string_view message)
  template <typename IdType_t>
  void PeriodicTask(IdType_t taskId)
 {
-	std::stringstream ssMessage;
+    std::stringstream ssMessage;
     ssMessage<<"Executing Periodic task, Task Info: "<<taskId<<std::endl<<std::flush;
     PrintMessage(ssMessage.str());
 		   
     using namespace std::chrono_literals;
     using namespace std::this_thread;
-	sleep_for(3s);
+    sleep_for(3s);
 }	 
 
  #endif

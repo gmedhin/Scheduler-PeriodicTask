@@ -26,9 +26,9 @@ namespace TaskScheduler
 
    template < typename Task_t, typename TaskId_t >
       void Scheduler < Task_t, TaskId_t > ::addPeriodicTask(TaskId_t taskId, Task_t task) 
-	  {
+      {
          
-		 std::lock_guard < std::mutex > guard(m_mutex);
+        std::lock_guard < std::mutex > guard(m_mutex);
 
          if (auto[pos, done] = m_taskIdToTaskMap.insert({taskId, task}); !done) {
             auto[taskId, task] = * pos;
@@ -41,7 +41,7 @@ namespace TaskScheduler
 
    template < typename Task_t, typename TaskId_t >
       void Scheduler < Task_t, TaskId_t > ::onNewTimeSec(timeval currentTime) const 
-	  {
+      {
 		  
          std::lock_guard < std::mutex > guard(m_mutex);
 		 
@@ -59,7 +59,7 @@ namespace TaskScheduler
 
    template < typename Task_t, typename TaskId_t >
       void Scheduler < Task_t, TaskId_t > ::removePeriodicTask(TaskId_t taskId) 
-	  {
+      {
 		  
          std::lock_guard < std::mutex > guard(m_mutex);
 
@@ -75,7 +75,7 @@ namespace TaskScheduler
 
    template < typename Task_t, typename TaskId_t >
       void Scheduler < Task_t, TaskId_t > ::changeTimeInterval(TaskId_t taskId, int newTimeIntervalSec) 
-	  {
+      {
 		  
          std::lock_guard < std::mutex > guard(m_mutex);
 		 
@@ -93,7 +93,7 @@ namespace TaskScheduler
 
    template < typename Task_t, typename TaskId_t >
       void Scheduler < Task_t, TaskId_t > ::changeTaskId(TaskId_t oldId, TaskId_t newId) 
-	  {
+      {
 		  
          std::lock_guard < std::mutex > guard(m_mutex);
 		 
@@ -111,7 +111,7 @@ namespace TaskScheduler
 
    template < typename Task_t, typename TaskId_t >
       int Scheduler < Task_t, TaskId_t > ::getNumOfTasks() const 
-	  {
+      {
 		  
          std::lock_guard < std::mutex > guard(m_mutex);
 		 

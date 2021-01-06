@@ -34,7 +34,8 @@ inline std::ostream & operator << (std::ostream & os, const TaskInfo & taskId)
 //custom hash function
 struct hashing_func 
 {
-   std::size_t operator()(const TaskInfo & taskId) const {
+   std::size_t operator()(const TaskInfo & taskId) const
+   {
       return std::hash < int > ()(taskId.m_id);
    }
 };
@@ -52,9 +53,9 @@ namespace std
 
    template < >
       struct hash < TaskInfo > 
-	  {
+      {
          size_t operator()(const TaskInfo & taskId) const 
-		 {
+         {
             // Compute hash values based on id so that task id will be unique (map key)
             return hash < int > ()(taskId.m_id);
          }
