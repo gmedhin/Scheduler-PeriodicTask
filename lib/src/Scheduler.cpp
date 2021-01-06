@@ -21,7 +21,8 @@
 
 using namespace std;
 
-namespace TaskScheduler {
+namespace TaskScheduler 
+{
 
    template < typename Task_t, typename TaskId_t >
       void Scheduler < Task_t, TaskId_t > ::addPeriodicTask(TaskId_t taskId, Task_t task) 
