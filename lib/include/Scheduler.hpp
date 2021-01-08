@@ -34,7 +34,7 @@ namespace TaskScheduler
           *
           *  @param taskId - Id of periodic task 
           *  @param task - Name of periodic task to be added/stored in a table of periodic tasks
-		  *  @note May throw exception 
+          *  @note May throw exception 
           */
          void addPeriodicTask(TaskId_t taskId, Task_t taskNew);
 
@@ -71,6 +71,7 @@ namespace TaskScheduler
           *  @param newId  - New task id
           */
          void changeTaskId(TaskId_t oldId, TaskId_t newId);
+
          /**
           *  Retrieve number of available periodic tasks stored in the table
           *
@@ -90,7 +91,7 @@ namespace TaskScheduler
       private:
 
          mutable std::mutex m_mutex;
-         std::unordered_map < TaskId_t, Task_t, hashing_func, key_equal_fn > m_taskIdToTaskMap;  //Hash table with custom hashing and comparator functions
+         std::unordered_map < TaskId_t, Task_t, hashing_func, key_equal_fn > m_taskIdToTaskMap;  ///< Hash table with custom hashing and comparator functions
       };
 }
 #endif
